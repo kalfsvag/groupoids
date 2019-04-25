@@ -124,5 +124,6 @@ groupoid/category_quotient/cquot_principles.v
 groupoid/category_quotient/cquot_functor.v
 groupoid/category_quotient/properties/cquot_poly.v
 groupoid/category_quotient/path_category.v
-groupoid/category_quotient/unit.v
-groupoid/category_quotient/counit.v
+groupoid/category_quotient/cquot_unit.v
+groupoid/category_quotient/cquot_counit.v
+groupoid/category_quotient/cquot_biadjunction.v

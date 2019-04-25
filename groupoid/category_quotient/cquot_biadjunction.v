@@ -13,7 +13,7 @@ Require Import GR.bicategories.biadjunction.biadjunction.
 (*      path_groupoid.path_groupoid *)
 (*      adjunction.unit *)
 (*      adjunction.counit. *)
-Require Import cquot_functor cquot_unit cquot_counit path_category.
+Require Import cquot_principles cquot_functor cquot_unit cquot_counit path_category.
 From GR.basics Require Import
      general.
 
@@ -32,14 +32,14 @@ Section BiAdjunction.
          counit_cq.
   
   Definition cquot_triangle_l_map_help
-             {G : PreCategory}
+             {C : PreCategory}
              {a₁ a₂ : C}
              (g : C a₁ a₂)
     : path_over
         (fun h : cquot C =>
            counit_map (cquot_functor_obj C) (cquot_functor_map (unit_map C) h)
            = h) 
-        (gcleq C g)
+        (ccleq C g)
         1%path
         1%path.
   Proof.
@@ -51,7 +51,7 @@ Section BiAdjunction.
     reflexivity.
   Qed.
   
-  Definition cquot_triangle_l_map (G : PreCat)
+  Definition cquot_triangle_l_map (C : PreCat)
     : forall x : cquot C,
       counit_map (cquot_functor_obj C) (cquot_functor_map (unit_map C) x) = x.
   Proof.
@@ -133,9 +133,9 @@ Section BiAdjunction.
     apply path_natural_transformation.
     intros x.
     cbn.
-    rewrite ge, !concat_1p.
+    rewrite ce, !concat_1p.
     rewrite !ap10_path_forall ; simpl.
-    rewrite !ge ; simpl.
+    rewrite !ce ; simpl.
     reflexivity.
   Qed.
 
